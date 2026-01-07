@@ -1,4 +1,4 @@
-import ResumeForm from "./Resume";
+import ResumeForm from "./ResumeForm";
 
 
 
