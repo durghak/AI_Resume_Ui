@@ -39,7 +39,7 @@ function Resumeform() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}/generateResume`, {
+      const response = await fetch(`${API_URL}/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)
