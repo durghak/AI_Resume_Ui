@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useState, useRef } from 'react'; 
 import html2pdf from 'html2pdf.js';
 import ReactMarkdown from 'react-markdown';
-import { API_URL } from "../config";
+import { API_URL } from "./config";
 
 function Resumeform() {
 
