@@ -78,6 +78,7 @@ function Resumeform() {
       
       {formData.map((field) => (
         <TextField
+          required
           key={field.name}
           label={field.label}
           variant="standard"
