@@ -38,6 +38,11 @@ function Resumeform() {
   const Ai_generate = async (e) => {
     e.preventDefault();
     setLoading(true);
+    if (!form.full_name || !form.Email_Address || !form.Phone_Number || !form.job_title) {
+      alert("Please fill in all required fields.");
+      setLoading(false);
+      return;
+    }
     try {
       const response = await fetch(`${API_URL}/ai/generate`, {
         method: "POST",
