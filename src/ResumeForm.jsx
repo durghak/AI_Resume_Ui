@@ -7,6 +7,7 @@ import { useState, useRef } from 'react';
 import html2pdf from 'html2pdf.js';
 import ReactMarkdown from 'react-markdown';
 import { API_URL } from "./config";
+import Grid from '@mui/material/Grid';
 
 function Resumeform() {
 
@@ -78,9 +79,12 @@ function Resumeform() {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, padding: '50px' }}>
+    <>
+     <Grid container spacing={2} justifyContent="center">
+      <Grid item xs={12} md={4}/>
+      <Grid item xs={12} md={4}>
       <Typography variant="h4" gutterBottom>Resume Builder</Typography>
-      
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       {formData.map((field) => (
         <TextField
           required
@@ -91,9 +95,10 @@ function Resumeform() {
           onChange={(e) => setform({ ...form, [field.name]: e.target.value })}
           multiline={field.multiline || false}
           rows={field.rows || 1}
-          sx={{ width: '400px' }}
+          // sx={{ width: '400px' }}
         />
       ))}
+
 
       <Button 
         variant="contained" 
@@ -101,10 +106,14 @@ function Resumeform() {
         onClick={Ai_generate} 
         disabled={loading}
       >
+        
         {loading ? <CircularProgress size={24} color="inherit" /> : "Generate Resume"}
       </Button>
+      </Box>
+      </Grid>
+      <Grid item xs={12} md={4}/>
 
-      {/* RESULT SECTION */}
+       {/* RESULT SECTION */}
       {resume && (
         <Box sx={{ mt: 4, width: '100%', maxWidth: '800px' }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
@@ -140,8 +149,10 @@ function Resumeform() {
             )}
           </Box>
         </Box>
+      
       )}
-    </Box>
+    </Grid>
+    </>
   );
 }
 
